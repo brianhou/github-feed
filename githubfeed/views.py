@@ -1,10 +1,10 @@
 from django.http import HttpResponse
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 
 def home(request):
-    return HttpResponse('githubfeed: go to /feed/your-username')
+    return render(request, 'feed/index.html')
 
 def feed(request, username):
     if username:
-        return HttpResponse('you are at /feed/{}'.format(username))
+        return render(request, 'feed/feed.html', {'username': username})
     return redirect('home')
