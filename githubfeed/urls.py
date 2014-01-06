@@ -4,9 +4,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'githubfeed.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
-
+    url(r'^$', 'githubfeed.views.home', name='home'),
+    url(r'^feed/(?P<username>\w*)', 'githubfeed.views.feed', name='feed'),
     url(r'^admin/', include(admin.site.urls)),
 )
