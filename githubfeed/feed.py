@@ -16,10 +16,6 @@ def not_found(default=None):
         return protected
     return defaulted
 
-@not_found('')
-def get_user(username):
-    return gh.users.get(username)
-
 @not_found(())
 def get_repos(username):
     return tuple(gh.repos.list(username).iterator())
@@ -33,3 +29,17 @@ def get_commits(username): # oops rate limiting
         my_repo_commits = filter(lambda s: s.author and s.author.login == username, repo_commits.iterator())
         all_commits.extend(list(my_repo_commits))
     return all_commits
+
+def recent_commits(username, n=10):
+    """Returns a list of recent commits by USERNAME. Each commit is represented
+    as a Commit object."""
+    return (Commit('hi'),) * n
+    return tuple(Commit(c) for c in get_commits(username)[:n])
+
+class Commit(object):
+    def __init__(self, commit_object):
+        self.message = commit_object
+        self.committer = commit_object
+        self.url = commit_object
+        self.repo = commit_object
+        self.date = commit_object
