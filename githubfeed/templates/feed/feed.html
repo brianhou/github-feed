@@ -1,3 +1,5 @@
+{% extends "feed/base.html" %}
+{% block content %}
 <h2>{{username}}'s Recent Commits</h2>
 
 {% for commit in recent_commits %}
@@ -12,3 +14,4 @@
 {% empty %}
 <p>There doesn't seem to be anything here.</p>
 {% endfor %}
+{% endblock %}

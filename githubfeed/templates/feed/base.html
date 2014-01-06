@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <title>gh-feed</title>
+  {% load staticfiles %}
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static "feed/feed.css" %}"></style>
+  {% block head %} {% endblock %}
+</head>
+<body>
+  <div id="content">{% block content %} {% endblock %}</div>
+</body>
+{% block endbody %} {% endblock %}
+</html>

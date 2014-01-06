@@ -1,0 +1,11 @@
+.time {
+    text-align: right;
+}
+
+.commit {
+    background: thistle;
+    width: 40%;
+    min-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
