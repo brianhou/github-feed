@@ -3,6 +3,9 @@ import sys
 
 g = github.Github()
 
+def limit():
+    return g.rate_limiting
+
 def not_found(default):
     def defaulted(fn):
         def protected(*args, **kwargs):
